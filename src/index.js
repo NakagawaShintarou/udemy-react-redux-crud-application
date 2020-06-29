@@ -4,23 +4,16 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 import './index.css';
-import reducer from ./reducers
+import reducer from './reducers'
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
-const store = createStore(reduce)
+const store = createStore(reducer)
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
-
-ReactDOM.render(
-  <Provider>
-  <App />
-  </Provider>
-  document.getRlementById('root')
-);
-serviceWorker.unregister();
+registerServiceWorker();
